@@ -1,0 +1,37 @@
+node {
+    stage ('Clone repository') {
+        checkout scm
+    }
+    
+    
+    stage('Build') {
+        nodejs(nodeJSInstallationName: '16.20.1'){
+            sh "npm install"
+            sh "npm run build"
+        }
+        
+    }
+    stage ('Build image') {
+        app = docker.build("869906837484.dkr.ecr.ap-northeast-2.amazonaws.com/myapp", "--build-arg ENVIRONMENT=${env} .")
+    }
+    stage ('Push image') {
+        
+        docker.withRegistry('http://869906837484.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:ap-northeast-2:infra_admin') {   // withRegistry(이미지 올릴 ECR 주소, Credentail ID) 이렇게 셋팅하면 된다.
+            app.push("mzc-final-admin-${env.BUILD_NUMBER}")   // tag 정보
+            app.push("mzc-final-admin-latest")       // tag 정보
+        }
+    }
+    stage ('Build image') {
+        app = docker.build("eeapbh/mzc-final-admin")
+    }
+
+    stage ('Push image') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+            app.push("v2.0.${env.BUILD_NUMBER}")
+            app.push("latest")
+        }
+    }
+
+    
+
+}
