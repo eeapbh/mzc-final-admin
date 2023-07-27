@@ -28,6 +28,10 @@
   color: #61dafb;
 }
 
+.tablecustom {
+  margin: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +39,21 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.adminwrap {
+  width: 40%;
+  height: 600px;
+  text-align: center;
+  margin: 150px auto;
+}
+
+.htitle {
+  margin-bottom: 50px;
+}
+
+.cen {
+  display: flex;
+  justify-content: center; /* 요소를 수평으로 중앙 정렬합니다. */
+  align-items: center; /* 요소를 수직으로 중앙 정렬합니다. */
 }

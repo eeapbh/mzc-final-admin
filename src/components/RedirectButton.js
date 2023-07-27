@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./RedirectButton.module.css";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const RedirectButton = ({ url, btnName }) => {
   const handleClick = () => {
@@ -7,9 +9,14 @@ const RedirectButton = ({ url, btnName }) => {
   };
 
   return (
-    <button className={styles.redirectBtn} onClick={handleClick}>
+    <Button
+      variant="outline-primary"
+      className={styles.redirectBtn}
+      onClick={handleClick}
+      size="sm"
+    >
       Go to {btnName}
-    </button>
+    </Button>
   );
 };
 
