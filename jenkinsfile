@@ -11,13 +11,13 @@ node {
         }
         
     }
-    stage ('Build image') {
+    stage ('Build image for ECR') {
         app = docker.build("869906837484.dkr.ecr.ap-northeast-2.amazonaws.com/myapp", "--build-arg ENVIRONMENT=${env} .")
     }
-    stage ('Push image') {
+    stage ('Push image to ECR') {
         
         docker.withRegistry('http://869906837484.dkr.ecr.ap-northeast-2.amazonaws.com', 'ecr:ap-northeast-2:infra_admin') {   // withRegistry(이미지 올릴 ECR 주소, Credentail ID) 이렇게 셋팅하면 된다.
-            app.push("mzc-final-admin-${env.BUILD_NUMBER}")   // tag 정보
+            app.push("mzc-final-admin-v3.0.${env.BUILD_NUMBER}")   // tag 정보
             app.push("mzc-final-admin-latest")       // tag 정보
         }
     }
@@ -27,7 +27,7 @@ node {
 
     stage ('Push image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
-            app.push("v2.0.${env.BUILD_NUMBER}")
+            app.push("v3.0.${env.BUILD_NUMBER}")
             app.push("latest")
         }
     }

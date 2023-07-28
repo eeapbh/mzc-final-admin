@@ -28,7 +28,7 @@ function App() {
             <td class="align-middle">Prometheus</td>
             <td>
               <RedirectButton
-                url="http://prometheus.woobuntu.shop"
+                url="http://prometheus.woobuntu.shop:9090"
                 btnName="prometheus"
               />
             </td>
@@ -46,7 +46,7 @@ function App() {
             <td class="align-middle"> Thanos</td>
             <td>
               <RedirectButton
-                url="http://thanos.woobuntu.shop"
+                url="http://thanos.woobuntu.shop:9090"
                 btnName="thanos"
               />
             </td>
