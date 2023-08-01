@@ -43,11 +43,21 @@ function App() {
             </td>
           </tr>
           <tr>
-            <td class="align-middle"> Thanos</td>
+            <td class="align-middle">Thanos</td>
             <td>
               <RedirectButton
                 url="http://thanos.woobuntu.shop:9090"
                 btnName="thanos"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="align-middle">Opensearch</td>
+            <td>
+              <RedirectButton
+                url="https://search-my-opensearch-4vauzrnb5zfocorjiwjxbfhkvm.ap-northeast-2.es.amazonaws.com/_dashboards"
+                btnName="opensearch"
               />
             </td>
           </tr>
