@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
     <div className={styles.adminwrap}>
-      <h1 className={styles.htitle}>모니터링 페이지</h1>
+      <h1 className={styles.htitle}>Monitoring Management Page</h1>
       <Table striped bordered hover className={styles.tablecustom}>
         <thead>
           <tr>
